@@ -1,0 +1,217 @@
+/* ============================== */
+/* GLOBAL STYLE (Termasuk Reset) */
+/* ============================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+body {
+    background-color: #ffffff;
+    color: #333;
+    /* Memberikan ruang di atas agar tidak tertutup fixed navbar */
+    padding-top: 65px; 
+}
+
+/* ============================== */
+/* NAVBAR (Sesuai Struktur HTML Anda) */
+/* ============================== */
+.navbar {
+    width: 100%;
+    background: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 60px;
+    position: fixed; /* Membuat navbar tetap di atas */
+    top: 0;
+    left: 0;
+    z-index: 100;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 45px;
+    height: 45px;
+    margin-right: 10px;
+}
+
+.logo h1 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #0a0a0a;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #555;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    padding-bottom: 5px; /* Memberi ruang untuk garis bawah */
+}
+
+nav a.active {
+    color: #000;
+    border-bottom: 2px solid #000;
+}
+
+nav a:hover {
+    color: #000;
+}
+
+
+/* ============================== */
+/* BAGIAN CONTACT PERSON (Sesuai Gambar) */
+/* ============================== */
+
+/* Pastikan main tidak terikat ke tinggi viewport */
+main {
+    flex-grow: 1; /* Memastikan main mengisi ruang di antara navbar dan footer */
+}
+
+.contact-person-section {
+    display: flex;
+    position: relative;
+    /* Mengambil tinggi minimal agar mengisi sisa ruang yang ada di layar */
+    min-height: calc(100vh - 65px - 200px); 
+    padding: 40px 0;
+    background-color: #ffffff;
+    overflow: hidden;
+}
+
+.konten-slogan {
+    flex: 1;
+    padding: 80px 60px 80px 100px;
+    z-index: 10;
+    position: relative;
+    max-width: 50%;
+}
+
+.konten-slogan h1 {
+    font-size: 3.5em;
+    font-weight: 700;
+    color: #0051ff;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.konten-slogan p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    text-align: justify;
+}
+
+.tombol-hubungi {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: #0051ff;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.1s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.tombol-hubungi:hover {
+    background-color: var(--warna-biru-gelap);
+    transform: translateY(-2px);
+}
+
+.gambar-kontak {
+    flex: 1;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 90%; /* Agar gambar tidak terlalu lebar */
+    background-image: url('gambar/CONTACT_PERSON.png'); /* pastikan file ada di path ini */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 5;
+}
+
+/* Overlay biru tua di bagian bawah gambar */
+.contact-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 300px; /* Tinggi zona biru */
+    background-color: var(--warna-biru-gelap);
+    z-index: 8;
+}
+
+/* ============================== */
+/* FOOTER (Sesuai Gambar) */
+/* ============================== */
+.footer-simapeda {
+    width: 100%;
+    background-color: #1a1a1a; /* Biru gelap kehitaman seperti di gambar */
+    color: #ffffff;
+    padding: 20px 60px 10px;
+    text-align: center;
+    z-index: 10; /* Pastikan footer di atas elemen lain */
+}
+
+.footer-konten {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto 10px;
+    padding-bottom: 10px;
+    /* Border top hanya untuk memisahkan konten footer dan hak cipta */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.footer-logo img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+.sosial-media a {
+    margin: 0 8px;
+    text-decoration: none;
+    /* Atur style icon media sosial jika menggunakan font-awesome atau sejenisnya */
+}
+
+.sosial-media img {
+    width: 24px;
+    height: 24px;
+    /* Filter untuk membuat ikon terlihat putih jika ikon asli tidak putih */
+    filter: brightness(0) invert(1); 
+}
+
+.hak-cipta {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.7);
+    padding-top: 10px;
+}
+
+

@@ -1,0 +1,394 @@
+/* ============================== */
+/* GLOBAL STYLE */
+/* ============================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+/* ============================== */
+/* NAVBAR */
+/* ============================== */
+.navbar {
+  width: 100%;
+  background: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 60px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  width: 45px;
+  height: 45px;
+  margin-right: 10px;
+}
+
+.logo h1 {
+  font-size: 20px;
+  font-weight: bold;
+  color: #0a0a0a;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #555;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+nav a.active {
+  color: #000;
+  border-bottom: 2px solid #000;
+}
+
+nav a:hover {
+  color: #000;
+}
+
+/* ============================== */
+/* HERO SECTION */
+/* ============================== */
+.hero {
+  background: url('gambar/background.png') center/cover no-repeat;
+  background-attachment: fixed;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.overlay {
+  background: rgba(255, 255, 255, 0.75);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-content {
+  text-align: center;
+  color: #000;
+}
+
+.hero-content h1 {
+  font-size: 100px;
+  font-weight: bold;
+}
+
+.hero-content p {
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+/* ============================== */
+/* ARTIKEL SECTION */
+/* ============================== */
+.artikel {
+  background: url('gambar/background.png') center/cover no-repeat;
+  background-attachment: fixed;
+  text-align: center;
+  padding: 100px 0;
+  position: relative;
+}
+
+.artikel h2 {
+  font-size: 28px;
+  margin-bottom: 40px;
+  color: #000;
+}
+
+.artikel::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.75); /* efek lapisan putih */
+  z-index: 0; /* di bawah isi konten */
+}
+
+/* Supaya kontennya tetap terlihat di atas layer putih */
+.artikel * {
+  position: relative;
+  z-index: 1;
+}
+
+
+/* Container untuk artikel */
+.artikel-container {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  padding: 0 60px;
+}
+
+/* Kartu artikel */
+.artikel-card {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+  overflow: hidden;
+  width: 320px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.artikel-card:hover {
+  transform: translateY(-5px);
+}
+
+.artikel-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.artikel-content {
+  padding: 20px;
+  text-align: left;
+}
+
+.artikel-content h3 {
+  font-size: 18px;
+  color: #111;
+  margin-bottom: 10px;
+}
+
+.artikel-content p {
+  font-size: 14px;
+  color: #333;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+.artikel-content a {
+  font-size: 14px;
+  color: #007BFF;
+  text-decoration: none;
+}
+
+.artikel-content a:hover {
+  text-decoration: underline;
+}
+
+/* ============================== */
+/* ARTIKEL SLIDER */
+/* ============================== */
+.artikel {
+  position: relative;
+  overflow: hidden;
+  padding: 100px 60px;
+  background: url('gambar/background.png') center/cover no-repeat;
+}
+
+/* Lapisan putih transparan di atas background */
+.artikel::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(255,255,255,0.8);
+  z-index: 0;
+}
+
+/* Pastikan konten tampil di atas overlay */
+.artikel * {
+  position: relative;
+  z-index: 1;
+}
+
+.artikel h2 {
+  font-size: 28px;
+  margin-bottom: 30px;
+  color: #000;
+  text-align: center;
+}
+
+/* ============================== */
+/* CONTAINER SLIDER */
+/* ============================== */
+.artikel-container {
+  display: flex;
+  gap: 30px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none; /* Firefox */
+  flex-wrap: nowrap;           /* TIDAK wrap — paksa 1 baris */
+  align-items: flex-start;     /* pastikan konten tidak stretch secara vertikal */
+  padding: 10px 60px;         /* sesuaikan padding jika perlu */
+}
+.artikel-container::-webkit-scrollbar {
+  display: none; /* Chrome */
+}
+
+/* pastikan kartu memiliki lebar tetap sehingga akan muncul berderet ke samping */
+.artikel-card {
+  flex: 0 0 320px; /* atau ganti 320px sesuai lebar yang diinginkan */
+  max-width: 320px;
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+.artikel-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Tombol panah */
+.artikel button {
+  position: fixed; /* Ubah dari absolute ke fixed */
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.95);
+  border: none;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  cursor: pointer;
+  color: #333;
+  border-radius: 50%;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  z-index: 100; /* Tingkatkan z-index */
+  transition: all 0.2s ease;
+}
+
+/* Posisi tombol di sisi kiri dan kanan */
+.prev { 
+    left: 20px;
+    position: absolute; /* Kembalikan ke absolute */
+}
+.next { 
+    right: 20px;
+    position: absolute; /* Kembalikan ke absolute */
+}
+
+.artikel button:hover {
+  background: rgba(255,255,255,1);
+  transform: translateY(-50%) scale(1.05);
+}
+
+/* ============================== */
+/* RESPONSIVE */
+/* ============================== */
+@media (max-width: 992px) {
+  .artikel-card {
+    flex: 0 0 calc((100% - 30px) / 2); /* 2 kartu di tablet */
+  }
+}
+
+@media (max-width: 600px) {
+  .artikel-card {
+    flex: 0 0 100%; /* 1 kartu di HP */
+  }
+}
+
+
+.artikel {
+  position: relative;
+  overflow: hidden;
+  padding: 100px 60px;
+  background: url('gambar/background.png') center/cover no-repeat;
+}
+
+.artikel::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(255,255,255,0.8);
+  z-index: 0;
+}
+
+.artikel * {
+  position: relative;
+  z-index: 1;
+}
+
+.artikel h2 {
+  font-size: 28px;
+  margin-bottom: 30px;
+  color: #000;
+  text-align: center;
+}
+
+/* Slider container */
+.artikel-container {
+  display: flex;
+  gap: 30px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none; /* Firefox */
+}
+.artikel-container::-webkit-scrollbar {
+  display: none; /* Chrome */
+}
+
+/* Kartu artikel */
+.artikel-card {
+  flex: 0 0 calc((100% - 60px) / 3); /* tampil 3 kartu */
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+.artikel-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Tombol panah */
+.artikel button {
+  position: fixed; /* Ubah dari absolute ke fixed */
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.95);
+  border: none;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  cursor: pointer;
+  color: #333;
+  border-radius: 50%;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  z-index: 100; /* Tingkatkan z-index */
+  transition: all 0.2s ease;
+}
+.artikel button:hover {
+  background: rgba(255,255,255,1);
+  transform: translateY(-50%) scale(1.05);
+}
+.prev { left: 20px; }
+.next { right: 20px; }
+
+
+

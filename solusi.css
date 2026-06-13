@@ -1,0 +1,146 @@
+/* ============================== */
+/* GLOBAL STYLE (Termasuk Reset) */
+/* ============================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+body {
+    background-color: #ffffff;
+    color: #333;
+    /* Memberikan ruang di atas agar tidak tertutup fixed navbar */
+    padding-top: 65px; 
+}
+
+/* ============================== */
+/* NAVBAR (Sesuai Struktur HTML Anda) */
+/* ============================== */
+.navbar {
+    width: 100%;
+    background: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 60px;
+    position: fixed; /* Membuat navbar tetap di atas */
+    top: 0;
+    left: 0;
+    z-index: 100;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 45px;
+    height: 45px;
+    margin-right: 10px;
+}
+
+.logo h1 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #0a0a0a;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #555;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    padding-bottom: 5px; /* Memberi ruang untuk garis bawah */
+}
+
+nav a.active {
+    color: #000;
+    border-bottom: 2px solid #000;
+}
+
+nav a:hover {
+    color: #000;
+}
+
+/* ============================== */
+/* BAGIAN SOLUSI & WORD CLOUD */
+/* ============================== */
+
+.bagian-solusi {
+    min-height: calc(100vh - 65px); /* Set tinggi minimum setelah navbar */
+    display: flex;
+    flex-direction: column; /* Konten disusun vertikal */
+    justify-content: flex-start; /* Mulai dari atas */
+    align-items: center;
+    text-align: center;
+    padding: 50px 20px; 
+    position: relative;
+    z-index: 1;
+}
+
+/* Latar Belakang (Seperti Gambar Pemandangan Desa) */
+.bagian-solusi {
+    /* Ganti 'gambar/background-solusi.jpg' dengan path gambar desa Anda */
+    background-image: url('gambar/solusi.png'); 
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* Menambahkan overlay putih transparan */
+.bagian-solusi::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ffffffbd; /* Warna putih dengan opacity 0.3 */
+    z-index: 1;
+}
+
+.judul-solusi {
+    font-size: 2em;
+    font-weight: 700;
+    color: #000000;         
+    margin-top: 50px;
+    margin-bottom: 30px;
+    text-align: center;
+    z-index: 2;
+}
+
+
+.kontainer-wordcloud {
+    background-color: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    max-width: 1000px; /* Memperbesar max-width dari 800px */
+    width: 95%;
+    min-height: 500px; /* Memperbesar min-height dari 400px */
+    margin: 30px auto; /* Menambah margin atas bawah dan auto untuk center */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+}
+
+/* Canvas tempat Wordcloud digambar (Penting untuk JS) */
+#wordcloud-canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+

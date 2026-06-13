@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SIMAPEDA | Home</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">
+      <img src="gambar/logo.png" alt="Logo Tridatu Solution">
+      <h1>SIMAPEDA</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html" class="active">HOME</a></li>
+        <li><a href="tentang-kami.html">TENTANG KAMI</a></li>
+        <li><a href="solusi.html">SOLUSI</a></li>
+        <li><a href="fitur.html">FITUR</a></li>
+        <li><a href="partner.html">PARTNER</a></li>
+        <li><a href="contact-person.html">CONTACT PERSON</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="overlay">
+      <div class="hero-content">
+        <h1 id="counter">0</h1>
+        <p>Desa sudah merasakan manfaatnya, kini giliran desamu!</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Artikel & Berita Section -->
+  <section class="artikel">
+    <h2>Artikel & Berita</h2>
+    <div class="artikel-container">
+
+       <!-- Tombol Panah -->
+  <button class="prev">&#10094;</button>
+  <button class="next">&#10095;</button>
+      
+      <div class="artikel-card">
+        <img src="gambar/artikel1.png" alt="Artikel 1">
+        <div class="artikel-content">
+          <h3>Digitalisasi Desa masih minim di Indonesia</h3>
+          <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore..."</p>
+          <a href="#">Baca selengkapnya...</a>
+        </div>
+      </div>
+
+      <div class="artikel-card">
+        <img src="gambar/artikel2.png" alt="Artikel 2">
+        <div class="artikel-content">
+          <h3>Program SIMAPEDA capai 3000 desa</h3>
+          <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore..."</p>
+          <a href="#">Baca selengkapnya...</a>
+        </div>
+      </div>
+
+      <div class="artikel-card">
+        <img src="gambar/artikel3.png" alt="Artikel 3">
+        <div class="artikel-content">
+          <h3>Inovasi digital bantu percepat layanan desa</h3>
+          <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore..."</p>
+          <a href="#">Baca selengkapnya...</a>
+        </div>
+      </div>
+
+      <div class="artikel-card">
+        <img src="gambar/artikel3.png" alt="Artikel 4">
+        <div class="artikel-content">
+          <h3>Inovasi digital bantu percepat layanan desa</h3>
+          <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore..."</p>
+          <a href="#">Baca selengkapnya...</a>
+        </div>
+      </div>
+
+      <div class="artikel-card">
+        <img src="gambar/artikel3.png" alt="Artikel 5">
+        <div class="artikel-content">
+          <h3>Inovasi digital bantu percepat layanan desa</h3>
+          <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore..."</p>
+          <a href="#">Baca selengkapnya...</a>    
+        </div>
+      </div>
+
+      <div class="artikel-card">
+        <img src="gambar/artikel3.png" alt="Artikel 6">
+        <div class="artikel-content">
+          <h3>Inovasi digital bantu percepat layanan desa</h3>
+          <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore..."</p>
+          <a href="#">Baca selengkapnya...</a>
+        </div>
+      </div>
+
+      <script>
+  const container = document.querySelector('.artikel-container');
+  const nextBtn = document.querySelector('.next');
+  const prevBtn = document.querySelector('.prev');
+
+  nextBtn.addEventListener('click', () => {
+    container.scrollBy({ left: container.clientWidth / 1.1, behavior: 'smooth' });
+  });
+
+  prevBtn.addEventListener('click', () => {
+    container.scrollBy({ left: -container.clientWidth / 1.1, behavior: 'smooth' });
+  });
+</script>
+
+<script>
+    const counterElement = document.getElementById('counter');
+    const targetNumber = 5637;
+    const duration = 2000; // Durasi animasi dalam milidetik
+    const steps =200; // Jumlah langkah animasi
+    
+    function animateCounter() {
+        let current = 0;
+        const increment = targetNumber / steps;
+        const stepTime = duration / steps;
+        
+        const timer = setInterval(() => {
+            current += increment;
+            if (current >= targetNumber) {
+                clearInterval(timer);
+                counterElement.textContent = targetNumber;
+            } else {
+                counterElement.textContent = Math.round(current);
+            }
+        }, stepTime);
+    }
+
+    // Jalankan animasi ketika elemen visible
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animateCounter();
+                observer.unobserve(entry.target);
+            }
+        });
+    });
+
+    observer.observe(counterElement);
+</script>
+
+
+
+    </div>
+  </section>
+
+</body>
+
+
+</html>

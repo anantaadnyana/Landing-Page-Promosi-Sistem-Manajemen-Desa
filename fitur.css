@@ -1,0 +1,183 @@
+/* ============================== */
+/* GLOBAL STYLE (Termasuk Reset) */
+/* ============================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+body {
+    background-color: #ffffff;
+    color: #333;
+    /* Memberikan ruang di atas agar tidak tertutup fixed navbar */
+    padding-top: 65px; 
+}
+
+/* ============================== */
+/* NAVBAR (Sesuai Struktur HTML Anda) */
+/* ============================== */
+.navbar {
+    width: 100%;
+    background: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 60px;
+    position: fixed; /* Membuat navbar tetap di atas */
+    top: 0;
+    left: 0;
+    z-index: 100;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 45px;
+    height: 45px;
+    margin-right: 10px;
+}
+
+.logo h1 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #0a0a0a;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #555;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    padding-bottom: 5px; /* Memberi ruang untuk garis bawah */
+}
+
+nav a.active {
+    color: #000;
+    border-bottom: 2px solid #000;
+}
+
+nav a:hover {
+    color: #000;
+}
+
+/* ============================== */
+/* BAGIAN FITUR */
+/* ============================== */
+.bagian-fitur {
+    padding: 50px 20px;
+    text-align: center;
+    position: relative; /* penting untuk overlay */
+    background-image: url('gambar/fitur.png'); /* gunakan gambar yang sama dengan solusi */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    overflow: hidden;
+}
+
+/* Layer putih transparan di atas background */
+.bagian-fitur::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.35); /* sesuaikan opacity di sini (0.0 - 1.0) */
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Pastikan konten tampil di atas overlay */
+.judul-fitur,
+.grid-fitur,
+.card-fitur {
+    position: relative;
+    z-index: 2;
+}
+
+.judul-fitur {
+    font-size: 2em;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 60px;
+}
+
+.grid-fitur {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    /* Grid 3 kolom untuk desktop/tablet besar */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 30px;
+    padding: 0 20px;
+}
+
+/* Styling Card Fitur */
+.card-fitur {
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.08);
+    overflow: hidden; /* Penting agar gambar melengkung */
+    transition: transform 0.3s ease-in-out;
+}
+
+.card-fitur:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+.gambar-placeholder {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 20px 20px 0 0; 
+}
+
+.gambar-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    /* Efek gambar yang sedikit menjorok ke dalam card */
+    border-radius: 20px 20px 0 0;
+}
+
+.konten-card {
+    padding: 25px;
+    text-align: center;
+}
+
+.konten-card h3 {
+    font-size: 1.1em;
+    font-weight: 700;
+    color: #0a0a0a;
+    margin-bottom: 5px;
+}
+
+.konten-card .sub-judul {
+    font-size: 0.85em;
+    color: #555;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.konten-card .deskripsi-card {
+    font-size: 0.85em;
+    color: #666;
+    line-height: 1.5;
+    text-align: left;
+}
+

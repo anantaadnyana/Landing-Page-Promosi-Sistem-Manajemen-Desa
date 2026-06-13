@@ -1,0 +1,194 @@
+/* ============================== */
+/* GLOBAL STYLE (Termasuk Reset) */
+/* ============================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+body {
+    background-color: #ffffff;
+    color: #333;
+    /* Memberikan ruang di atas agar tidak tertutup fixed navbar */
+    padding-top: 65px; 
+}
+
+/* ============================== */
+/* NAVBAR (Sesuai Struktur HTML Anda) */
+/* ============================== */
+.navbar {
+    width: 100%;
+    background: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 60px;
+    position: fixed; /* Membuat navbar tetap di atas */
+    top: 0;
+    left: 0;
+    z-index: 100;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 45px;
+    height: 45px;
+    margin-right: 10px;
+}
+
+.logo h1 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #0a0a0a;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #555;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    padding-bottom: 5px; /* Memberi ruang untuk garis bawah */
+}
+
+nav a.active {
+    color: #000;
+    border-bottom: 2px solid #000;
+}
+
+nav a:hover {
+    color: #000;
+}
+
+/* ============================== */
+/* BAGIAN PARTNER */
+/* ============================== */
+.bagian-partner {
+    position: relative;
+    padding: 50px 20px;
+    min-height: calc(100vh - 65px); /* Memastikan konten mengisi layar */
+    text-align: center;
+    overflow: hidden; /* Penting untuk mengontrol background */
+    
+    /* Ganti background image dengan PARTNER.png */
+    background-image: url('gambar/PARTNER.png'); 
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    z-index: 1;
+}
+
+/* Overlay Transparan (Meredupkan dan Mencegah logo terlalu menyatu dengan background) */
+.background-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Layer abu-abu transparan (opacity 0.8) di atas gambar */
+    background-color: rgba(255, 255, 255, 0.8); 
+    z-index: 2;
+}
+
+
+.judul-partner {
+    font-size: 2em;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 40px;
+    position: relative;
+    z-index: 3; /* Pastikan judul di atas overlay */
+}
+
+.grid-partner {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    /* Grid 4 kolom untuk logo */
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 20px;
+    padding: 0 10px;
+    position: relative;
+    z-index: 3; /* Pastikan grid logo di atas overlay */
+}
+
+/* Styling Card Logo */
+.card-partner {
+    background-color: white;
+    padding: 15px;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150px; /* Tinggi tetap untuk logo */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.card-partner:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.card-partner img {
+    max-width: 80%;
+    max-height: 80%;
+    object-fit: contain;
+    display: block;
+}
+
+
+/* ============================== */
+/* RESPONSIVE (Mobile View) */
+/* ============================== */
+@media (max-width: 900px) {
+    /* Untuk tablet, ubah menjadi 3 kolom */
+    .grid-partner {
+        grid-template-columns: repeat(3, 1fr); 
+        max-width: 800px;
+    }
+}
+
+@media (max-width: 600px) {
+    /* Untuk mobile, ubah menjadi 2 kolom */
+    .grid-partner {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+
+    .navbar {
+        padding: 10px 15px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    nav ul {
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-top: 10px;
+        justify-content: center;
+        width: 100%;
+    }
+    
+    body {
+        padding-top: 100px; /* Tambah padding atas karena navbar melebar */
+    }
+
+    .judul-partner {
+        font-size: 1.5em;
+        margin-bottom: 30px;
+    }
+}
